@@ -11,6 +11,7 @@ import { Highlight } from "@/components/Highlight";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { Loader } from "@/components/Loader";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +29,7 @@ function Index() {
   return (
     <main className="relative overflow-x-hidden">
       <Loader />
+      <CursorGlow />
       <Navbar />
       <Hero />
       <Products />
