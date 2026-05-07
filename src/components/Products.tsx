@@ -39,7 +39,7 @@ function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
         <span className="text-gold">●</span>
       </div>
 
-      <div className="relative mx-auto my-6 flex h-64 items-center justify-center">
+      <div className="relative mx-auto my-5 flex h-52 items-center justify-center sm:my-6 sm:h-64">
         <div className="absolute inset-0 m-8 rounded-full bg-gradient-to-tr from-gold/20 to-herb/10 blur-2xl transition-opacity duration-700 group-hover:opacity-100 opacity-50" />
         <motion.img
           src={p.img}
@@ -51,10 +51,10 @@ function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
         />
       </div>
 
-      <h3 className="font-display text-2xl text-primary">{p.name}</h3>
-      <div className="mt-1 flex items-baseline justify-between">
-        <span className="text-gradient-gold font-display text-xl">{p.price}</span>
-        <button className="rounded-full bg-primary px-4 py-2 text-xs uppercase tracking-widest text-cream transition-all hover:bg-primary/90">
+      <h3 className="font-display text-xl text-primary sm:text-2xl">{p.name}</h3>
+      <div className="mt-1 flex items-baseline justify-between gap-3">
+        <span className="text-gradient-gold font-display text-lg sm:text-xl">{p.price}</span>
+        <button className="rounded-full bg-primary px-3 py-1.5 text-[10px] uppercase tracking-widest text-cream transition-all hover:bg-primary/90 sm:px-4 sm:py-2 sm:text-xs">
           Add to Ritual
         </button>
       </div>

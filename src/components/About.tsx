@@ -3,8 +3,8 @@ import jar from "@/assets/hero-jar.png";
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
+    <section id="about" className="relative overflow-hidden py-20 sm:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:gap-16 sm:px-6 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.9 }}
@@ -14,15 +14,15 @@ export function About() {
           <motion.img
             src={jar} alt="The Ayurveda jar" loading="lazy"
             animate={{ y: [0, -18, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative mx-auto h-[500px] w-auto object-contain"
+            className="relative mx-auto h-[320px] w-auto object-contain sm:h-[440px] lg:h-[500px]"
           />
         </motion.div>
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">— Our Story</p>
-          <h2 className="mt-3 font-display text-5xl text-primary lg:text-6xl">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-gold sm:text-xs">— Our Story</p>
+          <h2 className="mt-3 font-display text-[2.2rem] leading-tight text-primary sm:text-5xl lg:text-6xl">
             A house of <span className="italic text-gradient-gold">healing</span>.
           </h2>
-          <p className="mt-6 text-lg text-brown/90">
+          <p className="mt-5 text-base text-brown/90 sm:mt-6 sm:text-lg">
             The Ayurveda was born from a simple promise — to bring the timeless rituals of the Indian subcontinent into the homes of seekers everywhere. We work with master vaidyas, third-generation farmers and modern scientists to create formulations that are deeply traditional and unmistakably premium.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6">

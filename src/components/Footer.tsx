@@ -4,8 +4,8 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary text-cream">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.78_0.13_80_/_0.18),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-10">
-        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="relative mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-6 sm:pt-24">
+        <div className="grid gap-10 sm:gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-gold to-gold-soft text-primary"><Leaf className="h-4 w-4"/></span>
