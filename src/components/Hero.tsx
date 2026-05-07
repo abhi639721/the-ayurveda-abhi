@@ -115,6 +115,8 @@ export function Hero() {
               alt="The Ayurveda hero jar"
               width={520}
               height={520}
+              loading="eager"
+              decoding="async"
               className="relative h-[300px] w-[300px] object-contain drop-shadow-2xl sm:h-[440px] sm:w-[440px] lg:h-[520px] lg:w-[520px]"
               animate={{ y: [0, -22, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
