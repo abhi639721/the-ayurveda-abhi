@@ -109,8 +109,32 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { useEffect } from "react";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const hideBadge = () => {
+      const badge = document.getElementById("lovable-badge-cta");
+      const close = document.getElementById("lovable-badge-close");
+      if (badge) {
+        badge.style.setProperty("display", "none", "important");
+      }
+      if (close) {
+        close.style.setProperty("display", "none", "important");
+      }
+    };
+
+    // Initial attempt
+    hideBadge();
+
+    // Use MutationObserver to catch elements if they are injected later
+    const observer = new MutationObserver(hideBadge);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
