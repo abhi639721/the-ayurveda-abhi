@@ -89,20 +89,20 @@ function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
 
 export function Products() {
   return (
-    <section id="products" className="relative overflow-hidden py-28">
+    <section id="products" className="relative overflow-hidden py-20 sm:py-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.86_0.09_85_/_0.25),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          transition={{ duration: 0.8 }} className="mb-16 max-w-2xl"
+          transition={{ duration: 0.8 }} className="mb-12 max-w-2xl sm:mb-16"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">— Featured Rituals</p>
-          <h2 className="mt-3 font-display text-5xl text-primary lg:text-6xl">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-gold sm:text-xs">— Featured Rituals</p>
+          <h2 className="mt-3 font-display text-[2.2rem] leading-tight text-primary sm:text-5xl lg:text-6xl">
             Crafted from <span className="italic text-gradient-gold">earth</span>, designed for you.
           </h2>
         </motion.div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {PRODUCTS.map((p, i) => <ProductCard key={p.name} p={p} i={i} />)}
         </div>
       </div>
