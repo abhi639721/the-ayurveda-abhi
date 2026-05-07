@@ -12,19 +12,19 @@ const FAQ = [
 export function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="relative py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_2fr]">
+    <section className="relative py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:gap-12 sm:px-6 lg:grid-cols-[1fr_2fr]">
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">— Questions</p>
-          <h2 className="mt-3 font-display text-5xl text-primary">Wisdom, <br/><span className="italic text-gradient-gold">answered.</span></h2>
+          <p className="text-[10px] uppercase tracking-[0.3em] text-gold sm:text-xs">— Questions</p>
+          <h2 className="mt-3 font-display text-[2.2rem] leading-tight text-primary sm:text-5xl">Wisdom, <br/><span className="italic text-gradient-gold">answered.</span></h2>
         </div>
         <div className="divide-y divide-gold/30">
           {FAQ.map((f, i) => {
             const isOpen = i === open;
             return (
-              <button key={f.q} onClick={() => setOpen(isOpen ? -1 : i)} className="block w-full py-6 text-left">
-                <div className="flex items-center justify-between gap-6">
-                  <span className="font-display text-2xl text-primary">{f.q}</span>
+              <button key={f.q} onClick={() => setOpen(isOpen ? -1 : i)} className="block w-full py-5 text-left sm:py-6">
+                <div className="flex items-center justify-between gap-4 sm:gap-6">
+                  <span className="font-display text-xl text-primary sm:text-2xl">{f.q}</span>
                   <Plus className={`h-5 w-5 shrink-0 text-gold transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`} />
                 </div>
                 <AnimatePresence initial={false}>
