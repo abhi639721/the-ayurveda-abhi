@@ -4,24 +4,31 @@ import oil from "@/assets/product-oil.png";
 import cream from "@/assets/product-cream.png";
 import tea from "@/assets/product-tea.png";
 import powder from "@/assets/product-powder.png";
+import { useCart } from "./cart/CartContext";
+import { toast } from "sonner";
 
 const PRODUCTS = [
-  { name: "Brahmi Herbal Oil", price: "$48", img: oil, tag: "Hair & Scalp",
+  { id: "brahmi-oil", name: "Brahmi Herbal Oil", price: 48, img: oil, tag: "Hair & Scalp",
     benefits: ["Strengthens roots", "Calms the mind", "Cooling effect"],
     ingredients: ["Brahmi", "Bhringraj", "Sesame oil"] },
-  { name: "Saffron Glow Cream", price: "$62", img: cream, tag: "Skincare",
+  { id: "saffron-cream", name: "Saffron Glow Cream", price: 62, img: cream, tag: "Skincare",
     benefits: ["Radiant skin", "Deep hydration", "Even tone"],
     ingredients: ["Saffron", "Kumkumadi", "Almond"] },
-  { name: "Tulsi Wellness Tea", price: "$24", img: tea, tag: "Immunity",
+  { id: "tulsi-tea", name: "Tulsi Wellness Tea", price: 24, img: tea, tag: "Immunity",
     benefits: ["Boosts immunity", "Reduces stress", "Aids digestion"],
     ingredients: ["Tulsi", "Ginger", "Ashwagandha"] },
-  { name: "Ashwagandha Powder", price: "$36", img: powder, tag: "Vitality",
+  { id: "ashwagandha-powder", name: "Ashwagandha Powder", price: 36, img: powder, tag: "Vitality",
     benefits: ["Energy & stamina", "Restful sleep", "Hormonal balance"],
     ingredients: ["Ashwagandha root", "Shatavari"] },
 ];
 
 function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
   const [hover, setHover] = useState(false);
+  const { add } = useCart();
+  const handleAdd = () => {
+    add({ id: p.id, name: p.name, price: p.price, img: p.img });
+    toast.success(`${p.name} added to your ritual`);
+  };
   return (
     <motion.article
       initial={{ opacity: 0, y: 60 }}
@@ -53,8 +60,8 @@ function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
 
       <h3 className="font-display text-xl text-primary sm:text-2xl">{p.name}</h3>
       <div className="mt-1 flex items-baseline justify-between gap-3">
-        <span className="text-gradient-gold font-display text-lg sm:text-xl">{p.price}</span>
-        <button className="rounded-full bg-primary px-3 py-1.5 text-[10px] uppercase tracking-widest text-cream transition-all hover:bg-primary/90 sm:px-4 sm:py-2 sm:text-xs">
+        <span className="text-gradient-gold font-display text-lg sm:text-xl">${p.price}</span>
+        <button onClick={handleAdd} className="rounded-full bg-primary px-3 py-1.5 text-[10px] uppercase tracking-widest text-cream transition-all hover:bg-primary/90 sm:px-4 sm:py-2 sm:text-xs">
           Add to Ritual
         </button>
       </div>

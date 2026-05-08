@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { Leaf } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Leaf, ShoppingBag } from "lucide-react";
+import { useCart } from "./cart/CartContext";
 
 export function Navbar() {
+  const { count, open } = useCart();
   const nav = [
     { label: "Products", href: "#products" },
     { label: "Ingredients", href: "#ingredients" },
@@ -31,9 +33,27 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <a href="#products" className="rounded-full bg-gradient-to-r from-gold to-gold-soft px-4 py-1.5 text-xs font-medium text-primary shadow-glow transition-transform hover:scale-105 sm:px-5 sm:py-2 sm:text-sm">
-          Shop
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={open}
+            aria-label="Open cart"
+            className="relative grid h-9 w-9 place-items-center rounded-full border border-cream/20 text-cream transition hover:border-gold hover:bg-cream/5 sm:h-10 sm:w-10"
+          >
+            <ShoppingBag className="h-4 w-4" />
+            <AnimatePresence>
+              {count > 0 && (
+                <motion.span
+                  key={count}
+                  initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0, opacity: 0 }}
+                  className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-gradient-to-br from-gold to-gold-soft px-1 text-[10px] font-semibold text-primary shadow-glow"
+                >{count}</motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+          <button onClick={open} className="rounded-full bg-gradient-to-r from-gold to-gold-soft px-4 py-1.5 text-xs font-medium text-primary shadow-glow transition-transform hover:scale-105 sm:px-5 sm:py-2 sm:text-sm">
+            Shop
+          </button>
+        </div>
       </div>
     </motion.header>
   );

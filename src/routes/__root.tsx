@@ -110,6 +110,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 import { useEffect } from "react";
+import { CartProvider } from "@/components/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { Toaster } from "sonner";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -138,7 +141,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+        <CartDrawer />
+        <Toaster position="bottom-right" theme="dark" />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

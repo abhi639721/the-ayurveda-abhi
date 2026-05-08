@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import cream from "@/assets/product-cream.png";
 import { Particles } from "./Particles";
+import { useCart } from "./cart/CartContext";
+import { toast } from "sonner";
 
 export function Highlight() {
+  const { add } = useCart();
+  const addCream = () => {
+    add({ id: "saffron-cream", name: "Saffron Glow Cream", price: 62, img: cream });
+    toast.success("Saffron Glow Cream added to your ritual");
+  };
   return (
     <section className="relative overflow-hidden bg-hero py-20 text-cream sm:py-28">
       <Particles count={10} />
@@ -16,7 +23,7 @@ export function Highlight() {
             27 botanicals. Cold-pressed Kashmiri saffron. A nightly ritual that reveals luminous, even-toned skin in 14 days — formulated from a 600-year-old palace recipe.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4 lg:justify-start">
-            <a href="#products" className="rounded-full bg-gradient-to-r from-gold to-gold-soft px-6 py-3 text-sm font-medium text-primary shadow-glow transition-transform hover:scale-105 sm:px-7 sm:py-3.5 sm:text-base">Discover the ritual</a>
+            <button onClick={addCream} className="rounded-full bg-gradient-to-r from-gold to-gold-soft px-6 py-3 text-sm font-medium text-primary shadow-glow transition-transform hover:scale-105 sm:px-7 sm:py-3.5 sm:text-base">Add to Ritual — $62</button>
             <span className="rounded-full border border-cream/25 px-6 py-3 text-sm text-cream/80 sm:px-7 sm:py-3.5 sm:text-base">$62 · 50ml</span>
           </div>
         </div>
