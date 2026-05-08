@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import cream from "@/assets/product-cream.png";
 import { Particles } from "./Particles";
+import { useCart } from "./cart/CartContext";
+import { toast } from "sonner";
 
 export function Highlight() {
+  const { add } = useCart();
+  const addCream = () => {
+    add({ id: "saffron-cream", name: "Saffron Glow Cream", price: 62, img: cream });
+    toast.success("Saffron Glow Cream added to your ritual");
+  };
   return (
     <section className="relative overflow-hidden bg-hero py-20 text-cream sm:py-28">
       <Particles count={10} />
