@@ -24,6 +24,11 @@ const PRODUCTS = [
 
 function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
   const [hover, setHover] = useState(false);
+  const { add } = useCart();
+  const handleAdd = () => {
+    add({ id: p.id, name: p.name, price: p.price, img: p.img });
+    toast.success(`${p.name} added to your ritual`);
+  };
   return (
     <motion.article
       initial={{ opacity: 0, y: 60 }}
