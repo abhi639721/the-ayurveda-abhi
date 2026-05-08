@@ -110,6 +110,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 import { useEffect } from "react";
+import { CartProvider } from "@/components/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -138,7 +140,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+        <CartDrawer />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

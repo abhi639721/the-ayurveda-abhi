@@ -4,18 +4,20 @@ import oil from "@/assets/product-oil.png";
 import cream from "@/assets/product-cream.png";
 import tea from "@/assets/product-tea.png";
 import powder from "@/assets/product-powder.png";
+import { useCart } from "./cart/CartContext";
+import { toast } from "sonner";
 
 const PRODUCTS = [
-  { name: "Brahmi Herbal Oil", price: "$48", img: oil, tag: "Hair & Scalp",
+  { id: "brahmi-oil", name: "Brahmi Herbal Oil", price: 48, img: oil, tag: "Hair & Scalp",
     benefits: ["Strengthens roots", "Calms the mind", "Cooling effect"],
     ingredients: ["Brahmi", "Bhringraj", "Sesame oil"] },
-  { name: "Saffron Glow Cream", price: "$62", img: cream, tag: "Skincare",
+  { id: "saffron-cream", name: "Saffron Glow Cream", price: 62, img: cream, tag: "Skincare",
     benefits: ["Radiant skin", "Deep hydration", "Even tone"],
     ingredients: ["Saffron", "Kumkumadi", "Almond"] },
-  { name: "Tulsi Wellness Tea", price: "$24", img: tea, tag: "Immunity",
+  { id: "tulsi-tea", name: "Tulsi Wellness Tea", price: 24, img: tea, tag: "Immunity",
     benefits: ["Boosts immunity", "Reduces stress", "Aids digestion"],
     ingredients: ["Tulsi", "Ginger", "Ashwagandha"] },
-  { name: "Ashwagandha Powder", price: "$36", img: powder, tag: "Vitality",
+  { id: "ashwagandha-powder", name: "Ashwagandha Powder", price: 36, img: powder, tag: "Vitality",
     benefits: ["Energy & stamina", "Restful sleep", "Hormonal balance"],
     ingredients: ["Ashwagandha root", "Shatavari"] },
 ];
