@@ -60,8 +60,8 @@ function ProductCard({ p, i }: { p: (typeof PRODUCTS)[number]; i: number }) {
 
       <h3 className="font-display text-xl text-primary sm:text-2xl">{p.name}</h3>
       <div className="mt-1 flex items-baseline justify-between gap-3">
-        <span className="text-gradient-gold font-display text-lg sm:text-xl">{p.price}</span>
-        <button className="rounded-full bg-primary px-3 py-1.5 text-[10px] uppercase tracking-widest text-cream transition-all hover:bg-primary/90 sm:px-4 sm:py-2 sm:text-xs">
+        <span className="text-gradient-gold font-display text-lg sm:text-xl">${p.price}</span>
+        <button onClick={handleAdd} className="rounded-full bg-primary px-3 py-1.5 text-[10px] uppercase tracking-widest text-cream transition-all hover:bg-primary/90 sm:px-4 sm:py-2 sm:text-xs">
           Add to Ritual
         </button>
       </div>
